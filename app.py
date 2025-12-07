@@ -30,22 +30,23 @@ Cholesterol_Ratio = CholesterolLDL / CholesterolTotal
 
 # --- Create dataframe ---
 user_data = {
-    "ADL": [ADL],
-    "FunctionalAssessment": [FunctionalAssessment],
-    "MMSE": [MMSE],
-    "DietQuality": [DietQuality],
-    "CholesterolTotal": [CholesterolTotal],
-    "CholesterolLDL": [CholesterolLDL],
-    "BehavioralProblems": [BehavioralProblems],
-    "SleepQuality": [SleepQuality],
-    "CholesterolTriglycerides": [CholesterolTriglycerides],
-    "Age": [Age],
-    "MemoryComplaints": [MemoryComplaints],
-    "BMI": [BMI],
-    "PhysicalActivity": [PhysicalActivity],
-    "TG_HDL_Index": [TG_HDL_Index],
-    "Cholesterol_Ratio": [Cholesterol_Ratio],
+    "ADL": st.number_input("ADL", min_value=0.0, max_value=10.0, value=4.0),
+    "FunctionalAssessment": st.number_input("FunctionalAssessment", min_value=0.0, max_value=10.0, value=5.0),
+    "MMSE": st.number_input("MMSE", min_value=0.0, max_value=30.0, value=15.0),
+    "DietQuality": st.number_input("DietQuality", min_value=0.0, max_value=10.0, value=6.0),
+    "CholesterolTotal": st.number_input("CholesterolTotal", min_value=100.0, max_value=400.0, value=220.0),
+    "CholesterolLDL": st.number_input("CholesterolLDL", min_value=50.0, max_value=300.0, value=125.0),
+    "BehavioralProblems": st.number_input("BehavioralProblems", min_value=0.0, max_value=10.0, value=0.0),
+    "SleepQuality": st.number_input("SleepQuality", min_value=0.0, max_value=10.0, value=7.0),
+    "CholesterolTriglycerides": st.number_input("CholesterolTriglycerides", min_value=50.0, max_value=500.0, value=230.0),
+    "Age": st.number_input("Age", min_value=1, max_value=120, value=75),
+    "MemoryComplaints": st.number_input("MemoryComplaints", min_value=0.0, max_value=10.0, value=1.0),
+    "BMI": st.number_input("BMI", min_value=5.0, max_value=60.0, value=28.0),
+    "PhysicalActivity": st.number_input("PhysicalActivity", min_value=0.0, max_value=10.0, value=2.0),
+    "TG_HDL_Index": st.number_input("TG_HDL_Index", min_value=0.0, max_value=20.0, value=4.5),
+    "Cholesterol_Ratio": st.number_input("Cholesterol_Ratio", min_value=1.0, max_value=500.0, value=5.0)
 }
+
 
 df_user = pd.DataFrame(user_data)
 df_user = df_user[model_features]  # keep only top 15 features in correct order
